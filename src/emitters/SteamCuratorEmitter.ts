@@ -31,7 +31,7 @@ export const SteamCuratorEmitter: QuartzEmitterPlugin<Options> = (opts) => ({
         `https://store.steampowered.com/curator/${opts?.curatorId}/`
       )
       const html = await res.text()
-      const match = html.match(/(\d[\d,.]+)\s+followers?/i)
+      const match = html.match(/class="num_followers"[^>]*>(\d[\d,.]+)</)
       followers = match ? parseInt(match[1].replace(/[,.]/g, "")) : 0
     } catch (e) {
       console.warn("[SteamCuratorEmitter] Falha ao buscar seguidores:", e)
