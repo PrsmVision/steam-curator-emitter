@@ -1,0 +1,40 @@
+{
+  "name": "steam-curator-emitter",
+  "private": false,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Steam Curator Emitter for Quartz 5 - fetches follower count during build",
+  "license": "MIT",
+  "files": ["dist", "package.json"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@quartz-community/types": "github:quartz-community/types"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "quartz": {
+    "name": "steam-curator-emitter",
+    "displayName": "Steam Curator Emitter",
+    "category": "emitter",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "defaultOptions": {
+      "curatorId": ""
+    }
+  }
+}
